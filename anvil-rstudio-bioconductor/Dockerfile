@@ -22,7 +22,7 @@ RUN ( usermod -g users rstudio && mkdir -p /home/rstudio/.config/rstudio ) || ( 
     && useradd -m -s /bin/bash -N --non-unique -u 1001 welder-user
 
 # google-cloud R packages
-RUN R -e "BiocManager::install(c('AnVIL', 'AnVILBase', 'AnVILGCP', 'DataBiosphere/Ronaldo', 'shiny', 'bigrquery', 'googleCloudStorageR', 'tidyverse', 'Seurat', 'markdown', 'SingleCellExperiment', 'GenomicFeatures', 'GenomicAlignments', 'ShortRead', 'DESeq2', 'AnnotationHub', 'ExperimentHub', 'ensembldb', 'scRNAseq', 'scran', 'Rtsne'), ask = FALSE, update = TRUE, force = TRUE)"
+RUN R -e "BiocManager::install(c('AnVIL', 'AnVILBase', 'AnVILGCP', 'DataBiosphere/Ronaldo', 'shiny', 'bigrquery', 'googleCloudStorageR', 'tidyverse', 'Seurat', 'markdown', 'SingleCellExperiment', 'GenomicFeatures', 'GenomicAlignments', 'ShortRead', 'DESeq2', 'AnnotationHub', 'ExperimentHub', 'ensembldb', 'scRNAseq', 'scran', 'Rtsne'), ask = FALSE, update = FALSE)"
 
 ENV RSTUDIO_PORT 8001
 ENV RSTUDIO_HOME /etc/rstudio
@@ -47,7 +47,7 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/* && \
     find / \( -path /proc -o -path /sys -o -path /dev \) -prune -o -user 1001 -exec chown -h 1000 {} \;
 
 
-FROM ghcr.io/bioconductor/jupyterlab-ml:3.21 as final
+FROM ghcr.io/bioconductor/jupyterlab-ml:3.22 as final
 COPY --from=build / /
 
 ENV RSTUDIO_PORT 8001
