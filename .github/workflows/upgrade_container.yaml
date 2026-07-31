@@ -34,6 +34,10 @@ on:
           - anvil-rstudio-bioconductor
           - anvil-rstudio-bioconductor-devel
 
+permissions:
+  contents: write
+  packages: write
+
 jobs:
   upgrade:
     name: Upgrade container image
