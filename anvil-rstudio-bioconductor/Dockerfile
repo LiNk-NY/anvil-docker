@@ -2,6 +2,10 @@ FROM ghcr.io/bioconductor/jupyterlab-ml:3.22 as build
 
 USER root
 
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN echo 'Dpkg::Options { "--force-confdef"; "--force-confold"; };' > /etc/apt/apt.conf.d/99force-conf
+
 RUN apt-get update && apt-get install -yq --no-install-recommends \
     gnupg \
     lsb-release \
