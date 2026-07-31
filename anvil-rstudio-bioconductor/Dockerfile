@@ -1,4 +1,4 @@
-FROM ghcr.io/bioconductor/jupyterlab-ml:3.21 as build
+FROM ghcr.io/bioconductor/jupyterlab-ml:3.22 as build
 
 USER root
 
