@@ -47,7 +47,7 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/* && \
     find / \( -path /proc -o -path /sys -o -path /dev \) -prune -o -user 1001 -exec chown -h 1000 {} \;
 
 
-FROM ghcr.io/bioconductor/jupyterlab-ml:3.21 as final
+FROM ghcr.io/bioconductor/jupyterlab-ml:3.22 as final
 COPY --from=build / /
 
 ENV RSTUDIO_PORT 8001
