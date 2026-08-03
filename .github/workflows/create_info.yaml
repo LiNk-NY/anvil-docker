@@ -33,6 +33,7 @@ jobs:
       - name: Generate info JSON with Broad script
         continue-on-error: true
         run: |
+          docker builder prune -a -f
           mkdir -p ${{ inputs.directory }}/info
           mkdir -p /tmp/${{ inputs.directory }}
           CURR_VERSION="${{ inputs.version }}"
