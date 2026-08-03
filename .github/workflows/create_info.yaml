@@ -40,7 +40,7 @@ jobs:
             CURR_VERSION=$(cat ${{ inputs.directory }}/VERSION)
           fi
           echo "Used version is $CURR_VERSION"
-          docker run --name ${{ inputs.directory }} -d us.gcr.io/broad-dsp-gcr-public/${{ inputs.directory }}:${CURR_VERSION}
+          docker run --name ${{ inputs.directory }} -d ghcr.io/link-ny/${{ inputs.directory }}:${CURR_VERSION}
           sed -i "s/##${{ inputs.directory }}-VERSION##/${CURR_VERSION}/g" config/conf.json
           bash scripts/generate_packages.sh ${{ inputs.directory }}
 
