@@ -4,8 +4,6 @@ set -x
 IMAGEDIR=$1
 
 cd scripts
-curl -O https://raw.githubusercontent.com/DataBiosphere/terra-docker/master/scripts/generate_package_docs.py
-curl -O https://raw.githubusercontent.com/DataBiosphere/terra-docker/master/scripts/utils.py
 
 cat << "EOF" > generate_packages.py
 from sys import argv
