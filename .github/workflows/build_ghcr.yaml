@@ -81,6 +81,7 @@ jobs:
       - name: Generate info JSON with Broad script
         if: steps.changed.outputs.CHANGED == 'TRUE'
         run: |
+          docker builder prune -a -f
           mkdir -p ${{ matrix.base.directory }}/info
           mkdir -p /tmp/${{ matrix.base.directory }}
           docker run --name ${{ matrix.base.directory }} -d ${{ steps.meta.outputs.tags }}

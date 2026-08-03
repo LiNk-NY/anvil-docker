@@ -88,6 +88,7 @@ jobs:
 
       - name: Generate info JSON with Broad script
         run: |
+          docker builder prune -a -f
           mkdir -p ${{ inputs.target_directory }}/info
           mkdir -p /tmp/${{ inputs.target_directory }}
           docker run --name ${{ inputs.target_directory }} -d ${{ steps.meta.outputs.tags }}
