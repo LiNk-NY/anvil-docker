@@ -9,6 +9,9 @@ on:
         required: false
         description: "Overwrite tag, defaults to VERSION file"
 
+permissions:
+  contents: write
+
 jobs:
   build:
     name: Generate info json file for Broad GCR container
